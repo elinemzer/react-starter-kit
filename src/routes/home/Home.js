@@ -32,7 +32,11 @@ class Home extends Component {
   submitOrderButton(evt) {
     evt.preventDefault();
     const bodyObj = { ...this.state };
-    // return axios.post(`api/orders`)
+    console.log('data', bodyObj)
+    return axios.post(`api/orders`, bodyObj)
+    .then(result => {
+      result.json(bodyObj)
+    })
   }
 
   render() {
@@ -43,6 +47,7 @@ class Home extends Component {
           <p>
             First Name:{' '}
             <input
+              name="firstName"
               type="text"
               value={this.state.firstName}
               onChange={this.onInputChange}
@@ -51,6 +56,7 @@ class Home extends Component {
           <p>
             Last Name:{' '}
             <input
+              name="lastName"
               type="text"
               value={this.state.lastName}
               onChange={this.onInputChange}
@@ -59,6 +65,7 @@ class Home extends Component {
           <p>
             Email:{' '}
             <input
+              name="email"
               type="text"
               value={this.state.email}
               onChange={this.onInputChange}
@@ -67,6 +74,7 @@ class Home extends Component {
           <p>
             Phone:{' '}
             <input
+              name="phone"
               type="text"
               value={this.state.phone}
               onChange={this.onInputChange}
@@ -75,6 +83,7 @@ class Home extends Component {
           <p>
             Notes:{' '}
             <input
+              name="notes"
               type="textarea"
               value={this.state.notes}
               onChange={this.onInputChange}
@@ -84,6 +93,7 @@ class Home extends Component {
           <p>
             Address:{' '}
             <input
+              name="address"
               type="text"
               value={this.state.address}
               onChange={this.onInputChange}
@@ -92,6 +102,7 @@ class Home extends Component {
           <p>
             Zip Code:{' '}
             <input
+              name="zipCode"
               type="text"
               value={this.state.zipCode}
               onChange={this.onInputChange}
@@ -100,6 +111,7 @@ class Home extends Component {
           <p>
             City:{' '}
             <input
+              name="city"
               type="text"
               value={this.state.city}
               onChange={this.onInputChange}
@@ -108,6 +120,7 @@ class Home extends Component {
           <p>
             State:{' '}
             <input
+              name="state"
               type="text"
               value={this.state.state}
               onChange={this.onInputChange}

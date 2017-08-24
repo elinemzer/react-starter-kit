@@ -29,6 +29,9 @@ import models from './data/models';
 import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import config from './config';
+import mongoose from 'mongoose';
+import Order from './data/api/models/orderModel';
+import routes from './data/api/routes/orderRoutes'
 
 const app = express();
 
@@ -39,6 +42,13 @@ const app = express();
 global.navigator = global.navigator || {};
 global.navigator.userAgent = global.navigator.userAgent || 'all';
 
+
+// mongoose instance connection url connection
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/Orderdb');
+
+
+
 //
 // Register Node.js middleware
 // -----------------------------------------------------------------------------
@@ -46,6 +56,8 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+routes(app)
 
 //
 // Authentication
