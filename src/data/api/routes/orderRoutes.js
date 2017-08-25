@@ -1,9 +1,15 @@
-module.exports = function(app) {
-  var order = require('../controllers/ordersController');
+const express = require('express');
+const router = express.Router();
+const order = require('../controllers/ordersController');
 
-  // todoList Routes
-  app.route('/orders')
-    .get(order.list_all_orders)
-    .post(order.create_a_order);
 
-  }
+  router.get('/', function(req, res, next) {
+
+      var testObject = {
+          "AppName": "MongoPop",
+          "Version": 1.0
+      }
+      res.json(testObject);
+  });
+
+module.exports = router;

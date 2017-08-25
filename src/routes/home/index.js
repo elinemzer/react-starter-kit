@@ -7,27 +7,22 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
-import Home from './Home';
-import Layout from '../../components/Layout';
+ import React from 'react';
+ import Layout from '../../components/Layout';
+ import Home from './Home';
 
-async function action({ fetch }) {
-  const resp = await fetch('/graphql', {
-    body: JSON.stringify({
-      query: '{news{title,link,content}}',
-    }),
-  });
-  const { data } = await resp.json();
-  if (!data || !data.news) throw new Error('Failed to load the news feed.');
-  return {
-    chunks: ['home'],
-    title: 'React Starter Kit',
-    component: (
-      <Layout>
-        <Home news={data.news} />
-      </Layout>
-    ),
-  };
-}
+ const title = 'Home';
 
-export default action;
+ function action() {
+   return {
+     chunks: ['home'],
+     title,
+     component: (
+       <Layout>
+         <Home title={title} />
+       </Layout>
+     ),
+   };
+ }
+
+ export default action;
