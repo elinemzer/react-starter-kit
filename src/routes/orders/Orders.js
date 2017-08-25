@@ -12,8 +12,9 @@ class Orders extends React.Component {
   }
 
   componentDidMount(){
-    axios.get(`/api/orders`)
+    axios.get(`/orders`)
     .then(response => {
+      console.log('hello', response.data)
       this.setState({
         orders: response.data.orders,
       });
