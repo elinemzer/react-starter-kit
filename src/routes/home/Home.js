@@ -33,9 +33,9 @@ class Home extends Component {
     evt.preventDefault();
     const bodyObj = { ...this.state };
     console.log('data', bodyObj)
-    return axios.post(`api/orders`, bodyObj)
+    axios.post(`/orders`, bodyObj)
     .then(result => {
-      result.json(bodyObj)
+      console.log('data', result)
     })
   }
 

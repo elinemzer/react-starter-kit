@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Order = mongoose.model('Order');
 
 exports.list_all_orders = function(req, res){
-  Order.find({}, function(err, order){
+  Order.find(function(err, orders){
     if(err)
       res.send(err);
-    res.json(order);
+    res.json(orders);
   });
 };
 

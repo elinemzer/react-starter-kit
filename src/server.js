@@ -57,7 +57,9 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/orders', routes);
+// app.use('/orders', routes);
+const apiroutes = require('./data/api/routes/orderRoutes'); //importing route
+apiroutes(app); //register the route
 
 //
 // Authentication
