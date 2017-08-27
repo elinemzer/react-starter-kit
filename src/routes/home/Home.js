@@ -3,6 +3,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Home.css';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
+// import { browserHistory } from 'react-router-dom';
 
 class Home extends Component {
   constructor(props) {
@@ -32,10 +33,10 @@ class Home extends Component {
   submitOrderButton(evt) {
     evt.preventDefault();
     const bodyObj = { ...this.state };
-    console.log('data', bodyObj)
     axios.post(`/orders`, bodyObj)
     .then(result => {
       console.log('data', result)
+      // browserHistory.push(`/thanks`)
     })
   }
 
@@ -90,6 +91,7 @@ class Home extends Component {
             />
           </p>
 
+          <div className="row">
           <p>
             Address:{' '}
             <input
@@ -127,15 +129,16 @@ class Home extends Component {
             />
           </p>
         </div>
+      </div>
 
         <div>
-          <Button
+          <button
             className="btn btn-default"
             type="submit"
             onClick={this.submitOrderButton}
           >
             Submit Order
-          </Button>
+          </button>
         </div>
       </div>
     );

@@ -44,7 +44,7 @@ const routes = {
       load: () => import(/* webpackChunkName: 'admin' */ './admin'),
     },
     {
-      path: '/orders',
+      path: '/vieworders',
       load: () => import(/* webpackChunkName: 'admin' */ './orders'),
     },
     {

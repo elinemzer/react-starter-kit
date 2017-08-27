@@ -17,7 +17,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <div className={s.root} role="navigation">
-        <Link className={cx(s.link, s.highlight)} to="/orders">
+        <Link className={cx(s.link, s.highlight)} to="/vieworders">
           View Orders
         </Link>
       </div>

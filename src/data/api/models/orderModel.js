@@ -15,8 +15,6 @@ const OrderSchema = new Schema({
   },
   zipCode: {
     type: Number,
-    min: 5,
-    max: 5,
   },
   city: {
     type: String,
@@ -34,7 +32,6 @@ const OrderSchema = new Schema({
   },
   phone: {
     type: Number,
-    max: 10,
   },
   notes: {
     type: String,

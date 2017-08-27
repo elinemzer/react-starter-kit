@@ -6,7 +6,7 @@ const title = 'Orders';
 
 function action() {
   return {
-    chunks: ['orders'],
+    chunks: ['vieworders'],
     title,
     component: (
       <Layout>

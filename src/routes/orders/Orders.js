@@ -14,9 +14,8 @@ class Orders extends React.Component {
   componentDidMount(){
     axios.get(`/orders`)
     .then(response => {
-      console.log('hello', response.data)
       this.setState({
-        orders: response.data.orders,
+        orders: response.data,
       });
     })
     .catch((error) => {
@@ -31,6 +30,13 @@ class Orders extends React.Component {
           <h1>
             View All Order Details:
           </h1>
+          {
+            this.state.orders.map(order => {
+              return (
+                <p>Name: {order.firstName} {order.lastName}</p>
+              )
+            })
+          }
         </div>
       </div>
     );
