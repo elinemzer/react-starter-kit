@@ -33,7 +33,17 @@ class Orders extends React.Component {
           {
             this.state.orders.map(order => {
               return (
-                <p>Name: {order.firstName} {order.lastName}</p>
+                <div className="card card-body">
+                <p><strong>Name: </strong>{order.firstName} {order.lastName}</p>
+                <p><strong>Address: </strong>{order.address}</p>
+                <p><strong>City: </strong>{order.city}</p>
+                <p><strong>State: </strong>{order.state}</p>
+                <p><strong>Zip:</strong> {order.zipCode}</p>
+                <p><strong>Email:</strong> {order.email}</p>
+                <p><strong>Phone: </strong>{order.phone}</p>
+                <p><strong>Notes: </strong>{order.notes}</p>
+
+              </div>
               )
             })
           }
